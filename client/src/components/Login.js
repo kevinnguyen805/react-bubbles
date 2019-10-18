@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const Login = (props) => {
@@ -23,7 +24,7 @@ const Login = (props) => {
     axiosWithAuth()
     .post('/api/login', credentials)
     .then(response => {
-      console.log(response)
+      console.log(response.data)
     })
   }
   
