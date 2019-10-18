@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const CORS = require("cors");
 
+
 const app = express();
 const token =
   "ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98";
@@ -102,7 +103,7 @@ function authenticator(req, res, next) {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
-  if (username === "Lambda School" && password === "i<3Lambd4") {
+  if (username === "lambda" && password === "lambda") {
     req.loggedIn = true;
     setTimeout(() => {
       res.status(200).json({
