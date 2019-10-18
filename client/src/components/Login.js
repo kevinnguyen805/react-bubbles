@@ -25,6 +25,8 @@ const Login = (props) => {
     .post('/api/login', credentials)
     .then(response => {
       console.log(response.data)
+      localStorage.setItem('token', response.data.payload)
+      props.history.push('/protected')
     })
   }
   
