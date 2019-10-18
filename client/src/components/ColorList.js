@@ -30,11 +30,20 @@ const ColorList = ({ colors, updateColors, history }) => {
     axiosWithAuth().put(`/api/colors/${colorToEdit.id}`, colorToEdit)
     .then(response => {
       console.log(response)
+      colors = colors.filter(item => item.id !== response.data.id)
+      console.log(colors)
+      updateColors([...colors, response.data])
+      setEditing(false)
     })
+    .catch(error => console.log(error))
   };
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    axiosWithAuth().delete(`colors/${color.id}`)
+    .then(response => {
+      console.log(response)
+    })
   };
 
   return (
